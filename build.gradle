@@ -1,0 +1,41 @@
+// Gradle plugins
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
+        maven {
+            name = 'minecrell'
+            url = 'http://repo.minecrell.net/releases'
+        }
+    }
+
+    dependencies {
+        classpath 'net.minecrell:VanillaGradle:2.0.3_1'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'org.spongepowered.plugin' version '0.6'
+}
+apply plugin: 'net.minecrell.vanilla.server.library'
+
+group = 'com.maxqia' // TODO
+version = '1.0-SNAPSHOT'
+description = 'A plugin for many small modular things'
+
+dependencies {
+    compile 'org.spongepowered:spongeapi:5.0.0'
+}
+
+minecraft {
+    version = '1.10.2'
+    mappings = 'snapshot_20161108'
+}
+
+reobf.jar {
+    mappingType = 'SEARGE'
+}

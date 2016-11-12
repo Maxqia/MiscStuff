@@ -27,6 +27,9 @@ group = 'com.maxqia' // TODO
 version = '1.0-SNAPSHOT'
 description = 'A plugin for many small modular things'
 
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
 dependencies {
     compile 'org.spongepowered:spongeapi:5.0.0'
 }

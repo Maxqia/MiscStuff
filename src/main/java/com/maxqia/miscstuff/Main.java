@@ -13,6 +13,11 @@ import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.hocon.HoconConfigurationLoader;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 
+/**
+ * Main plugin class, mainly launches listeners and
+ * handles configuration
+ * @author Maxqia
+ */
 @Plugin(id = "miscstuff", name = "MiscStuff")
 public class Main {
     /*@Inject
@@ -21,7 +26,7 @@ public class Main {
 
     ConfigurationLoader<CommentedConfigurationNode> loader =
             HoconConfigurationLoader.builder().setPath(defaultConfig).build();*/
-    
+
     @Listener
     public void onLoad(GameConstructionEvent event) {
         new DisableAttackTime(this);

@@ -31,5 +31,7 @@ public class Main {
     public void onLoad(GameConstructionEvent event) {
         new DisableAttackTime(this);
         new DoubleJump(this);
+        new NoWeather(this);
+        //new FastDespawn(this); // Keys.DESPAWN_DELAY doesn't work :(
     }
 }

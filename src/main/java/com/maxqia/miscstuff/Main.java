@@ -32,6 +32,7 @@ public class Main {
         new DisableAttackTime(this);
         new DoubleJump(this);
         new NoWeather(this);
+        new NoTarget(this);
         //new FastDespawn(this); // Keys.DESPAWN_DELAY doesn't work :(
     }
 }

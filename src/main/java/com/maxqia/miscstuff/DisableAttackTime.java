@@ -5,6 +5,7 @@ import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.network.ClientConnectionEvent;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 
 /**
  * This module disables the 1.9 attack time
@@ -13,7 +14,10 @@ import net.minecraft.entity.player.EntityPlayer;
  */
 public class DisableAttackTime {
     public DisableAttackTime(Main instance) {
-        Sponge.getEventManager().registerListeners(instance, this);
+        CommentedConfigurationNode node = instance.node.getNode("DisableAttackTime");
+        node.setComment("This module disables the attack time added in 1.9");
+        if (node.getNode("enabled").getBoolean(false))
+            Sponge.getEventManager().registerListeners(instance, this);
     }
 
     @Listener

@@ -21,9 +21,9 @@ import org.spongepowered.api.event.entity.DamageEntityEvent;
 import org.spongepowered.api.event.entity.MoveEntityEvent;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
-import org.spongepowered.api.world.explosion.Explosion;
-
 import com.flowpowered.math.vector.Vector3d;
+
+import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 
 /**
  * This module gives you a double jump ability!
@@ -38,7 +38,10 @@ public class DoubleJump {
     int test = 0;
 
     public DoubleJump(Main instance) {
-        Sponge.getEventManager().registerListeners(instance, this);
+        CommentedConfigurationNode node = instance.node.getNode("DoubleJump");
+        node.setComment("This module makes it so you can fly! (kind of)");
+        if (node.getNode("enabled").getBoolean(false))
+            Sponge.getEventManager().registerListeners(instance, this);
     }
 
     @Listener
